@@ -37,7 +37,7 @@ public abstract class Ship extends Entity {
 						enemy.canMove = false;
 					}
 					Entity ent = (Entity) instance;
-					addForce((float)ent.getDirection(),ent.getAcceleration()*2,"both");
+					addForce((float)ent.getDirection(),ent.getAcceleration()+ent.getAcceleration()/2,"both");
 					addRotationForce(Utili.chooseInt(-1,-2,-3,-4,-5,1,2,3,4,5));
 					
 					for(int ii = 0; ii < 5; ii++){

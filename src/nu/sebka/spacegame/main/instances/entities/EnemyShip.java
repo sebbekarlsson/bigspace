@@ -44,32 +44,37 @@ public  class EnemyShip extends Ship {
 			}
 		}
 
-		if(target != null){
-			if(Main.getCurrentScene().getDistance(this, target) > 100){
-				goalx = target.x;
-				goaly = target.y;
-			}
-			setSpeed(agrospeed);
-			shoot();
-
-		}
+		
 
 
 		if(canMove){
 			goaldirection = (float) Math.toDegrees((Math.atan2(goaly - y , goalx - x)));
+			
+			
+			if(target != null){
+				if(Main.getCurrentScene().getDistance(this, target) > 100){
+					goalx = target.x;
+					goaly = target.y;
+				}
+				setSpeed(agrospeed);
+				if(getRotation() > goaldirection-10 && getRotation() < goaldirection+10 ){
+					shoot();
+				}
+				
+				if(Main.getCurrentScene().getDistance(this, target) > 64){
+					setForce(goaldirection,getSpeed(),"both");
 
-			if(target == null){
+				}
+
+			}
+
+			else if(target == null){
 				setForce(goaldirection,getSpeed(),"both");
 
 				if(Main.getCurrentScene().getDistance(x, y, goalx, goaly) < 64){
 					newGoal();
 				}
 
-			}else{
-				if(Main.getCurrentScene().getDistance(this, target) > 64){
-					setForce(goaldirection,getSpeed(),"both");
-
-				}
 			}
 
 

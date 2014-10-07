@@ -29,10 +29,15 @@ public class Player extends Ship {
 		}
 
 		if(Keyboard.isKeyDown(Keyboard.KEY_UP)){
-			setForce(getRotation(),speed,"both");
+			float  travelSpeed = speed-getAcceleration();
+			if(travelSpeed < 0){
+				travelSpeed = 0;
+			}
+			addForce(getRotation(),travelSpeed,"both");
+
 		}
 
-		if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
+		if(Keyboard.isKeyDown(Keyboard.KEY_X)){
 			shoot();
 		}
 		

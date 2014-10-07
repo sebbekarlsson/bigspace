@@ -122,6 +122,10 @@ public abstract class Entity extends Instance {
 		return this.acceleration;
 	}
 	
+	public float getRealAcceleration(){
+		return dx * dy;
+	}
+	
 	public double getDirection(){
 		return direction;
 	}

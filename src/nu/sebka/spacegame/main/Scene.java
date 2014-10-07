@@ -40,7 +40,7 @@ public abstract class Scene {
 
 	public void instantiate(Instance instance){
 	
-		InstanceViewer.templist.add(instance);
+		//InstanceViewer.templist.add(instance);
 		instance.onCreation();
 		instances.add(instance);
 	}
